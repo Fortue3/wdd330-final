@@ -3,20 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipe System</title>
+    <title>Saved Recipes</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
     <header id="navbar"></header>
-    <div class="hero">
-        <img src="./images/hero-banner-large.jpg" alt="Recipes Image">
-    </div>
-    <div id="categories" class="categories"></div>
+    <div id="saved-recipes" class="recipes"></div>
     <script src="./js/script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             HeaderComponent.loadNavbar();
-            fetchCategories();
+            displaySavedRecipes();
         });
     </script>
 </body>

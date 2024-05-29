@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipe System</title>
+    <title>Recipes</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
     <header id="navbar"></header>
-    <div class="hero">
-        <img src="./images/hero-banner-large.jpg" alt="Recipes Image">
-    </div>
-    <div id="categories" class="categories"></div>
+    <input type="text" id="search" placeholder="Search recipes...">
+    <div id="recipes" class="recipes"></div>
     <script src="./js/script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             HeaderComponent.loadNavbar();
-            fetchCategories();
+            const category = new URLSearchParams(window.location.search).get('category');
+            fetchRecipes(category);
+            document.getElementById('search').addEventListener('input', searchRecipes);
         });
     </script>
 </body>
