@@ -4,19 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipes</title>
+    <link rel="stylesheet" href="./css/category.css">
     <link rel="stylesheet" href="./css/style.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <header id="navbar"></header>
-    <input type="text" id="search" placeholder="Search recipes...">
-    <div id="recipes" class="recipes"></div>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="images/logo-light.svg" alt="recipes">
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-icon"><i class="fas fa-home"></i> Home</a>
+            <a href="saved.html" class="nav-icon">
+                <i class="fas fa-bookmark"></i> Saved Recipes 
+                <span class="badge" id="numberOfRecipes">0</span></a>
+        </div>
+        <div class="hamburger" id="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+    <!-- <div class="hero">
+        <img src="./images/hero-banner-large.jpg" alt="Recipes Image">
+    </div> -->
+    <div class="hero">
+        <div class="overlay"></div>
+        <div class="content">
+            <h1>Checkout Your Favourite Recipe</h1>
+            <div class="search-bar">
+                <input type="text" id="search" placeholder="Search recipes...">
+                <button type="submit" id="btnSearch">Search</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="heading">
+        <h2>Recipes</h2>
+    </div>
+
+    <div class="recipes-container">
+        <div id="recipes" class="card-container"></div>
+    </div>
+
     <script src="./js/script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            HeaderComponent.loadNavbar();
+            // HeaderComponent.loadNavbar();
             const category = new URLSearchParams(window.location.search).get('category');
             fetchRecipes(category);
-            document.getElementById('search').addEventListener('input', searchRecipes);
+            countSavedRecipes();
+            document.getElementById('btnSearch').addEventListener('click', searchRecipes);
+            // document.getElementById('search').addEventListener('input', searchRecipes);
         });
     </script>
 </body>

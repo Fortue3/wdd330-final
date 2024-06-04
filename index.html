@@ -5,17 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipe System</title>
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/category.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <header id="navbar"></header>
-    <div class="hero">
+    <nav class="navbar">
+        <div class="logo">
+            <img src="images/logo-light.svg" alt="recipes">
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-icon"><i class="fas fa-home"></i> Home</a>
+            <a href="saved.html" class="nav-icon">
+                <i class="fas fa-bookmark"></i> Saved Recipes 
+                <span class="badge" id="numberOfRecipes">0</span>
+            </a>
+        </div>
+        <div class="hamburger" id="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+    <!-- <div class="hero">
         <img src="./images/hero-banner-large.jpg" alt="Recipes Image">
+    </div> -->
+    <div class="hero">
+        <div class="overlay"></div>
+        <div class="content">
+            <h1>Checkout Your Favourite Recipe</h1>
+            <!-- <div class="search-bar">
+                <input type="text" placeholder="Search...">
+                <button type="submit">Search</button>
+            </div> -->
+        </div>
     </div>
-    <div id="categories" class="categories"></div>
+    <section class="categories">
+        <h2>Categories</h2>
+        <div class="categories-container">
+            <!-- <button class="prev" id="prev"><i class="fas fa-chevron-left"></i></button> -->
+            <div class="categories-list" id="categories">
+                <!-- <div class="category">Category 1</div>
+                <div class="category">Category 2</div>
+                <div class="category">Category 3</div>
+                <div class="category">Category 4</div>
+                <div class="category">Category 5</div>
+                <div class="category">Category 6</div>
+                <div class="category">Category 7</div> -->
+            </div>
+            <!-- <button class="next" id="next"><i class="fas fa-chevron-right"></i></button> -->
+        </div>
+    </section>
+    <!-- <div id="categories" class="categories"></div> -->
     <script src="./js/script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            HeaderComponent.loadNavbar();
+            // HeaderComponent.loadNavbar();
+            countSavedRecipes();
             fetchCategories();
         });
     </script>

@@ -1,0 +1,58 @@
+.recipe-container {
+    margin: 20px 200px;
+    display: flex;
+}
+
+.right-box {
+    width: 50%;
+    border: 1px solid #286d34;
+    border-radius: 10px;
+}
+
+.main-image-box {
+    padding: 20px 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* .main-image {
+    height: 390px;
+    width: auto;
+    
+} */
+
+.details-box {
+    width: 50%;
+    padding-left: 50px;
+}
+
+.details-box ul {
+    margin-left: 50px;
+}
+
+.details-box h2 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #286d34;
+}
+
+.details-box h3 {
+    margin-top: 20px;
+    color: #286d34;
+}
+
+button {
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    background-color: #286d34;
+    color: white;
+    margin-top: 14px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: darkgreen;
+}

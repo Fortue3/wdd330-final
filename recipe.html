@@ -5,14 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipe Details</title>
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/category.css">
+    <link rel="stylesheet" href="./css/details.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <header id="navbar"></header>
-    <div id="recipe-details" class="recipe-details"></div>
+    <!-- <header id="navbar"></header> -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="images/logo-light.svg" alt="recipes">
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-icon"><i class="fas fa-home"></i> Home</a>
+            <a href="saved.html" class="nav-icon">
+                <i class="fas fa-bookmark"></i> Saved Recipes 
+                <span class="badge" id="numberOfRecipes">0</span></a>
+        </div>
+        <div class="hamburger" id="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+    <!-- <div id="recipe-details" class="card-container"></div> -->
+    <div id="recipe-container" class="recipe-container"></div>
     <script src="./js/script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            HeaderComponent.loadNavbar();
+            // HeaderComponent.loadNavbar();
+            countSavedRecipes();
             const recipeId = new URLSearchParams(window.location.search).get('id');
             fetchRecipeDetails(recipeId);
         });
