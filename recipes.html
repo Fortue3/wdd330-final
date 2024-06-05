@@ -42,6 +42,18 @@
         <h2>Recipes</h2>
     </div>
 
+    <div class="heading">
+        <div class="search-bar">
+            <select id="sortVal">
+                <option>Select Sorting Option</option>
+                <option value="ascending">A-Z</option>
+                <option value="descending">Z-A</option>
+            </select>
+            <!-- <input type="text" id="search" placeholder="Search recipes..."> -->
+            <button type="submit" id="btnSort">Sort</button>
+        </div>
+    </div>
+
     <div class="recipes-container">
         <div id="recipes" class="card-container"></div>
     </div>
@@ -54,6 +66,7 @@
             fetchRecipes(category);
             countSavedRecipes();
             document.getElementById('btnSearch').addEventListener('click', searchRecipes);
+            document.getElementById('btnSort').addEventListener('click', sortByName);
             // document.getElementById('search').addEventListener('input', searchRecipes);
         });
     </script>

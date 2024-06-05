@@ -28,6 +28,48 @@ function fetchCategories() {
         });
 }
 
+function sortByName() {
+    const category = new URLSearchParams(window.location.search).get('category');
+    fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`)
+        .then(response => response.json())
+        .then(data => {
+            const recipes = data.meals;
+            const sortVal = document.getElementById('sortVal').value
+            let sortedRecipes;
+            if (sortVal === "descending") {
+                console.log("sort by : ", sortVal);
+                sortedRecipes = recipes.sort((a, b) => b.strMeal.localeCompare(a.strMeal))
+            } else {
+                console.log("sort by : ", sortVal);
+                sortedRecipes = recipes.sort((a, b) => a.strMeal.localeCompare(b.strMeal))
+            }
+           
+            console.log(sortedRecipes)
+            // const sortedRecipes = recipes.sort()
+            let output = '';
+            recipes.forEach(recipe => {
+                output += `
+                    <div class="card">
+                        <img src="${recipe.strMealThumb}" alt="${recipe.strMeal}">
+                        <div class="card-content ">
+                            <h3>${recipe.strMeal}</h3>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                            <div class="btns">
+                                <button class="button" onclick="window.location.href='recipe.html?id=${recipe.idMeal}'">
+                                    <i class="fas fa-eye"></i>View
+                                </button>
+                                <button class="button" onclick="saveRecipe(${recipe.idMeal})">
+                                    <i class="fas fa-bookmark"></i>Save Recipe
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            document.getElementById('recipes').innerHTML = output;
+        });
+}
+
 function fetchRecipes(category) {
     fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`)
         .then(response => response.json())
